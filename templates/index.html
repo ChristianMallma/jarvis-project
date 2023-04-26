@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jarvis Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Jarvis Project</h1>
+      <form action="/chat" method="post">
+        <div>
+          <input type="text" name="message" class="form-control" id="message" placeholder="Escribe aquí">
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+      </form>
+      {% if response %}
+        <div class="message-container">
+          <p class="response">Jarvis: {{ response }}</p>
+        </div>
+      {% endif %}
+    </div>
+  </body>
+</html>
