@@ -1,7 +1,12 @@
+import os
+import openai
+
 from fastapi import FastAPI, Request, Form
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-import openai
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
@@ -9,7 +14,7 @@ templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Establece tu API key de OpenAI
-openai.api_key = "***..***"
+openai.api_key = os.getenv('API_KEY')
 
 
 # Función para generar una respuesta a partir de un prompt
