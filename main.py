@@ -20,7 +20,7 @@ openai.api_key = os.getenv('API_KEY')
 # Función para generar una respuesta a partir de un prompt
 def generate_response(prompt):
     response = openai.Completion.create(
-        engine="text-davinci-003",
+        engine="gpt-3.5-turbo",
         prompt=prompt,
         max_tokens=2048,
         n=1,
